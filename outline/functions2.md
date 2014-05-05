@@ -77,3 +77,33 @@ Why would you ever do this? Anonymous functions can be very useful when we have 
   ["i" "like" "peanut" "butter" "and" "jelly"])
 ;=> "i like peanut butter and jelly"
 ```
+
+### Overloading and Variable Arity
+
+Arity is a term for the number of arguments that a function takes. For example, `map` takes 2 arguments: the function to use, and the collection to use the function on. Therefore, it is arity 2.
+
+`+` and the other arithmetic functions are variable arity. They can take any number of arguments. If we were to write our own implementation of `+` called `add`, this is how we would do it:
+
+```clj
+(defn add
+  ([]
+    0)
+  ([x]
+    x)
+  ([x y]
+    (+ x y))
+  ([x y &rest]
+    (+ x y (apply + rest))))
+```
+
+There are 3 new concepts here:
+
+* Overloading
+    * Look at how `add` has multiple bodies, each with different numbers of arguments.
+    * When calling `add`, the body with the matching number of arguments will be used.
+* Variable arity with `&rest`
+    * The last body uses a special argument declaration called `&rest`.
+    * This means that anything beyond 2 arguments, i.e. `x` and `y`, gets loaded into a vector called `rest`.
+* `apply` function
+    * `apply` takes a vector and calls the function as if using the vector directly.
+    * Therefore, `(apply + [1 2 3])` is the same as saying `(+ 1 2 3)`.

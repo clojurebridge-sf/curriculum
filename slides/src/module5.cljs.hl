@@ -93,5 +93,24 @@
         ["i" "like" "peanut" "butter" "and" "jelly"])
         ;=> "i like peanut butter and jelly"
       ;;}}     
-      )))
+      ))
+      (slide
+        :title "Overloading and Variable Arity"
+        (hlclj
+         ;;{{
+         (defn add
+           ([]
+             0)
+           ([x]
+             x)
+           ([x y]
+             (+ x y))
+           ([x y &rest]
+             (+ x y (apply + rest)))
+             
+         (add) ;=> 0
+         (add 1) ;=> 1
+         (add 1 2) ;=> 3
+         (add 1 2 3 4 5) ;=> 15
+         ;;}})))
      )))
