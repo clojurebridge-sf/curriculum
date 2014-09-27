@@ -28,8 +28,8 @@
   * **Module 7**: [Flow Control](outline/7_flow_control.md) ([slides](http://clojurebridge-sf.github.io/curriculum/module7.html))
   * [Cheatsheet](outline/cheatsheet.md)
 
-* After modules ...
-  * [New exercises!](http://irc.lc/freenode/clojure/irctc)
+* After module are over ...
+  * [New exercises!](https://www.4clojure.com/)
   * [More drawing with quil](https://github.com/ClojureBridge/drawing)
 
 * Next Steps: You are now part of the Clojure Community!
